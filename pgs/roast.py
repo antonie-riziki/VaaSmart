@@ -140,7 +140,7 @@ with col2:
 col11, col12 = st.columns(2)
 
 
-if roast_button:
+if roast_button and uploaded_file and selected_style and intensity and add_info is not None:
     base_prompt = roast_personas[selected_style] + add_info
     roast_text = get_fashion_roast(drip_image, selected_style, intensity, base_prompt)
 
@@ -170,7 +170,8 @@ if roast_button:
         st.markdown(f'<div class="scroll-box">{roast_text}</div>', unsafe_allow_html=True)
         
 
-
+else:
+    st.warning("Please upload an image and select a roast style and intensity before roasting your fit.")
 
 
 if level_drip_button:
