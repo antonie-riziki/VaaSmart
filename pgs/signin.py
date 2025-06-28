@@ -8,7 +8,7 @@ import google.generativeai as genai
 sys.path.insert(1, './modules')
 print(sys.path.insert(1, '../modules/'))
 
-from func import generate_otp, send_sms, make_call
+from func import generate_otp, send_otp, make_call
 
 from dotenv import load_dotenv
 
@@ -81,7 +81,7 @@ def sign_in_form():
         sms_btn = st.button('sms', use_container_width=True)
         if sms_btn==True:
             otp_text = generate_otp()
-            send_sms(phone, otp_text)
+            send_otp(phone, otp_text)
 
 
     with call:
