@@ -113,9 +113,9 @@ with st.sidebar:
         intensity = st.select_slider(
             "Choose your roast intensity:",
             options=[
-                "☕ Light Roast",   # playful + soft
-                "🔥 Medium Roast", # sassy
-                "💀 Dark Roast"    # brutal
+                "☕ Light Roast",   
+                "🔥 Medium Roast", 
+                "💀 Dark Roast"   
             ],
             value="🔥 Medium Roast"  
         )
