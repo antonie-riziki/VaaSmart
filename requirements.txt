@@ -32,3 +32,4 @@ faiss-cpu
 pypdf
 streamlit-scrollable-textbox
 pillow
+elevenlabs
