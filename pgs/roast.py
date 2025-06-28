@@ -1,7 +1,7 @@
 
 # from __future__ import annotations
 
-# import streamlit_scrollable_textbox as stx
+import streamlit_scrollable_textbox as stx
 import streamlit as st 
 import sys
 
