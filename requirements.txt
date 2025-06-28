@@ -30,3 +30,4 @@ tqdm
 chromadb
 faiss-cpu
 pypdf
+streamlit-scrollable-textbox
