@@ -63,45 +63,45 @@ with body:
 
     st.write("<h3 style='text-align: left; color: #3EA99F; margin-bottom: 1px;'>What We Do</h3>", unsafe_allow_html=True)
 
-    disaster_mgt, health, youth_dvp = st.columns(3, vertical_alignment="center")
-    special_pgm, natl_society, crisis_resp = st.columns(3, vertical_alignment="center")
+    ai_gen, visual_outfit, fashion_roast = st.columns(3, vertical_alignment="center")
+    nearby_store, smart_map, voice_exp = st.columns(3, vertical_alignment="center")
 
-    with disaster_mgt:
+    with ai_gen:
         cont1 = st.container(border=True)
         cont1.write("<h5 style='text-align: center; margin-bottom: 1px;'>🎯 AI-Generated Outfits</h5>", unsafe_allow_html=True)
         cont1.write('''We use advanced generative models to create complete daily outfit suggestions based on your preferences, location, 
                     and style trends — tailored just for you. ''')
 
 
-    with health:
+    with visual_outfit:
         cont2 = st.container(border=True)
         cont2.write("<h5 style='text-align: center; margin-bottom: 1px;'>🎨 Visual Outfit Rendering</h5>", unsafe_allow_html=True)
         cont2.write('''See your look before you wear it! Our image generation engine turns text-based outfits into vivid visuals so you 
                     can preview your style in real-time.''') 
 
 
-    with youth_dvp:
+    with fashion_roast:
         cont3 = st.container(border=True)
         cont3.write("<h5 style='text-align: center; margin-bottom: 1px;'>🤖 Fashion Roasts \n(Just for Fun)</h5>", unsafe_allow_html=True)
         cont3.write('''Need a little tough love? Our voice-enabled AI roast gives you a playful nudge when your fashion choices go off track. 
                     It’s witty, honest, and never boring.''') 
 
 
-    with special_pgm:
+    with nearby_store:
         cont4 = st.container(border=True)
         cont4.write("<h5 style='text-align: center; margin-bottom: 1px;'>🛍️ Nearby Store \nDiscovery</h5>", unsafe_allow_html=True)
         cont4.write('''We help you find local shops that sell items from your generated outfit — using smart location tools and open data mapping 
                     for cost-free, privacy-friendly results.''') 
 
 
-    with natl_society:
+    with smart_map:
         cont5 = st.container(border=True)
         cont5.write("<h5 style='text-align: center; margin-bottom: 1px;'>🗺️ Smart Map \nIntegration</h5>", unsafe_allow_html=True)
         cont5.write('''Our interactive map shows you nearby stores that match your fashion needs — along with ratings, directions, 
                     and store details, right inside the app.''') 
 
 
-    with crisis_resp: 
+    with voice_exp: 
         cont5 = st.container(border=True)
         cont5.write("<h5 style='text-align: center; margin-bottom: 1px;'>🎙️ Voice-to-Style \nExperience</h5>", unsafe_allow_html=True)
         cont5.write('''From speaking your preferences to listening to outfit breakdowns, we’re bringing fashion to life through audio, making 

@@ -5,6 +5,7 @@
 import streamlit as st 
 import sys
 
+
 from PIL import Image
 
 
@@ -124,8 +125,8 @@ with st.sidebar:
 
 
 
-
 col1, col2= st.columns(2)
+
 
 with col1:
     roast_button = st.button('Roast My Fit', use_container_width=True, type='primary')

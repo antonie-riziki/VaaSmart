@@ -34,3 +34,4 @@ streamlit-scrollable-textbox
 pillow
 elevenlabs
 googlemaps
+streamlit-navigation-bar
