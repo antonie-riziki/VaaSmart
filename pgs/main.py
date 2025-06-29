@@ -68,7 +68,7 @@ with body:
 
     with disaster_mgt:
         cont1 = st.container(border=True)
-        cont1.write("<h5 style='text-align: center; margin-bottom: 1px;'>🎯 AI-Generated Daily Outfits</h5>", unsafe_allow_html=True)
+        cont1.write("<h5 style='text-align: center; margin-bottom: 1px;'>🎯 AI-Generated Outfits</h5>", unsafe_allow_html=True)
         cont1.write('''We use advanced generative models to create complete daily outfit suggestions based on your preferences, location, 
                     and style trends — tailored just for you. ''')
 
@@ -82,28 +82,28 @@ with body:
 
     with youth_dvp:
         cont3 = st.container(border=True)
-        cont3.write("<h5 style='text-align: center; margin-bottom: 1px;'>🤖 Fashion Roasts (Just for Fun)</h5>", unsafe_allow_html=True)
+        cont3.write("<h5 style='text-align: center; margin-bottom: 1px;'>🤖 Fashion Roasts \n(Just for Fun)</h5>", unsafe_allow_html=True)
         cont3.write('''Need a little tough love? Our voice-enabled AI roast gives you a playful nudge when your fashion choices go off track. 
                     It’s witty, honest, and never boring.''') 
 
 
     with special_pgm:
         cont4 = st.container(border=True)
-        cont4.write("<h5 style='text-align: center; margin-bottom: 1px;'>🛍️ Nearby Store Discovery</h5>", unsafe_allow_html=True)
+        cont4.write("<h5 style='text-align: center; margin-bottom: 1px;'>🛍️ Nearby Store \nDiscovery</h5>", unsafe_allow_html=True)
         cont4.write('''We help you find local shops that sell items from your generated outfit — using smart location tools and open data mapping 
                     for cost-free, privacy-friendly results.''') 
 
 
     with natl_society:
         cont5 = st.container(border=True)
-        cont5.write("<h5 style='text-align: center; margin-bottom: 1px;'>🗺️ Smart Map Integration</h5>", unsafe_allow_html=True)
+        cont5.write("<h5 style='text-align: center; margin-bottom: 1px;'>🗺️ Smart Map \nIntegration</h5>", unsafe_allow_html=True)
         cont5.write('''Our interactive map shows you nearby stores that match your fashion needs — along with ratings, directions, 
                     and store details, right inside the app.''') 
 
 
     with crisis_resp: 
         cont5 = st.container(border=True)
-        cont5.write("<h5 style='text-align: center; margin-bottom: 1px;'>🎙️ Voice-to-Style Experience</h5>", unsafe_allow_html=True)
+        cont5.write("<h5 style='text-align: center; margin-bottom: 1px;'>🎙️ Voice-to-Style \nExperience</h5>", unsafe_allow_html=True)
         cont5.write('''From speaking your preferences to listening to outfit breakdowns, we’re bringing fashion to life through audio, making 
                     your journey stylish and engaging — hands-free.''') 
 
@@ -134,7 +134,7 @@ with body:
         st.image('https://www.fashioncity-outlet.gr/wp-content/uploads/2020/01/img_LCWaikiki.png', width=150)
 
     with col7:
-        st.image('https://cdn.dribbble.com/userupload/20871830/file/original-74c4f198489757a0a2e18a1835e4d31e.png?resize=752x&vertical=center', width=150)
+        st.image('https://www.verve.vc/wp-content/uploads/2021/01/Fashwell_colour.png', width=150)
 
 
 
