@@ -26,7 +26,7 @@ st.markdown(
     <div class=title>
         <div style=" justify-content: center;">
             <h1 style="text-align: center; padding: 5px; color: #F52887;">Vaa Smart 👗</h1>
-            <p style="text-align: center;">Reimagining Fashion with Tech – One Closet at a Time</p>
+            <p style="text-align: center;">If the fit ain't it — we'll tell you</p>
         </div>
     </div>
     """,
