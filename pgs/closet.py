@@ -3,6 +3,11 @@ from __future__ import annotations
 
 import streamlit as st 
 import sys
+import folium
+
+from folium.plugins import MarkerCluster
+from geopy.geocoders import Nominatim
+from streamlit_folium import st_folium
 
 
 
@@ -16,8 +21,18 @@ from dotenv import load_dotenv
 load_dotenv()
 
 
-from func import autogenerate_weekly_outfit, autogenerate_daily_outfit, generate_outfit_image
+from func import autogenerate_weekly_outfit, autogenerate_daily_outfit, generate_outfit_image, geocode_location, search_nearby_apparel_stores
 from image_generation import google_image_generator
+
+
+
+@st.dialog("Login")
+def location_form():
+    with st.form(key="user_location"):
+        location_input = st.text_input("Enter your location (e.g., Nairobi, Kenya):")
+        submit_location = st.form_submit_button("Search Stores")
+
+    return location_input
 
 
 st.markdown(
@@ -34,8 +49,6 @@ st.markdown(
 
 st.image('https://3dlook.ai/wp-content/uploads/2021/07/main.jpg', width=900)
 
-
-st.write('AI Mirror')
 
 
 st.subheader('7 Days of Style')
@@ -227,6 +240,57 @@ with col2:
         google_image_generator(image_prompt + detailed_image_prompt)
 
         shop_outfit = st.button('Order Outfit', use_container_width=True, icon=":material/delivery_truck_bolt:", type="primary")
+
+
+        if shop_outfit:
+            get_location = location_form()
+            apparel_keywords = ["fashion", "clothing", "apparel", "boutique", "clothes", "outfit", "wardrobe", "dress", "shirt", "pants", "shoes", "collection"]
+
+            if get_location:
+                coords = geocode_location(get_location)
+
+                if coords:
+                    lat, lon = coords
+                    st.success(f"📍 Location found: {lat}, {lon}")
+
+                    stores = search_nearby_apparel_stores(lat, lon, apparel_keywords)
+
+                    if stores:
+                        # --- Step 3: Plotting Map ---
+                        st.subheader("🗺 Nearby Apparel Stores")
+                        map_ = folium.Map(location=[lat, lon], zoom_start=13)
+                        marker_cluster = MarkerCluster().add_to(map_)
+
+                        store_list = []
+
+                        for store in stores:
+                            store_name = store.get('tags', {}).get('name', 'Unnamed Store')
+                            store_lat = store.get('lat') or store.get('center', {}).get('lat')
+                            store_lon = store.get('lon') or store.get('center', {}).get('lon')
+                            if store_lat and store_lon:
+                                folium.Marker(
+                                    location=[store_lat, store_lon],
+                                    popup=store_name,
+                                    icon=folium.Icon(color='blue', icon='shopping-bag', prefix='fa')
+                                ).add_to(marker_cluster)
+                                store_list.append(store_name)
+
+                        st_data = st_folium(map_, width=700, height=500)
+
+                        # --- Step 4: Top Stores List ---
+                        st.subheader("🏬 Top Apparel Shops Nearby")
+                        for i, name in enumerate(store_list[:10], 1):
+                            st.markdown(f"{i}. **{name}**")
+
+                    else:
+                        st.warning("No apparel stores found matching your query in this area.")
+                else:
+                    st.error("Could not geocode the location. Please check your input.")
+
+
+
+# st.title("🧥 Apparel Store Finder")
+# location_input = st.text_input("Enter your location (e.g., Nairobi, Kenya):")
 
 
 

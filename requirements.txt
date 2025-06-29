@@ -33,3 +33,4 @@ pypdf
 streamlit-scrollable-textbox
 pillow
 elevenlabs
+googlemaps

@@ -9,17 +9,23 @@ import africastalking
 import streamlit as st 
 import google.generativeai as genai
 import base64
+import googlemaps
+import folium
 
 
 from io import BytesIO
 from dotenv import load_dotenv
 from google.genai import types
 # from google.generativeai.types import GenerationConfig
+from folium.plugins import MarkerCluster
+from geopy.geocoders import Nominatim
+from streamlit_folium import st_folium
 
 
 load_dotenv()
 
 genai.configure(api_key = os.getenv("GOOGLE_API_KEY"))
+
 
 africastalking.initialize(
     username='EMID',
@@ -317,3 +323,29 @@ def google_image_generator(prompt):
         if hasattr(part, 'inline_data') and part.inline_data:
             image = Image.open(BytesIO(part.inline_data.data))
             st.image(image, caption="Your AI-generated outfit", use_column_width=True)
+
+
+
+def geocode_location(location_name):
+    geolocator = Nominatim(user_agent="vaa_smart_locator")
+    location = geolocator.geocode(location_name)
+    if location:
+        return (location.latitude, location.longitude)
+    return None
+
+
+def search_nearby_apparel_stores(lat, lon, query, radius=5000):
+    # Convert query to tags used in OpenStreetMap (searching for shop=clothes with name or description match)
+    overpass_url = "http://overpass-api.de/api/interpreter"
+    overpass_query = f"""
+    [out:json];
+    (
+      node["shop"="clothes"](around:{radius},{lat},{lon})["name"~"{query}",i];
+      way["shop"="clothes"](around:{radius},{lat},{lon})["name"~"{query}",i];
+      relation["shop"="clothes"](around:{radius},{lat},{lon})["name"~"{query}",i];
+    );
+    out center;
+    """
+    response = requests.get(overpass_url, params={'data': overpass_query})
+    data = response.json()
+    return data.get("elements", [])
