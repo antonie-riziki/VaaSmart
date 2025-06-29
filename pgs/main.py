@@ -142,7 +142,7 @@ with body:
 
     st.write("<h3 style='text-align: left; color: #3EA99F; margin-bottom: 1px;'>Contact Us</h3>", unsafe_allow_html=True)
 
-    loc_map, loc_text = st.columns(2)
+    loc_map, loc_text = st.columns([3,2])
 
     with loc_map:
 
@@ -159,7 +159,7 @@ with body:
             icon=folium.Icon(color="blue", icon="info-sign"),
             ).add_to(m)
 
-        st_folium(m, width=900, height=300)
+        st_folium(m, width=1200, height=300)
 
 
     with loc_text:
