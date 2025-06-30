@@ -16,7 +16,7 @@ def get_gemini_response(prompt):
 
     model = genai.GenerativeModel("gemini-1.5-flash", 
 
-        system_instruction = """
+        system_instruction = f"""
         
             You are VaaBot — the intelligent, stylish, and witty assistant behind Vaa Smart, a smart fashion system that helps users plan, evaluate, and elevate their outfits.
 
@@ -49,14 +49,14 @@ def get_gemini_response(prompt):
 
             """
 
-            ),
+            )
 
 
     response = model.generate_content(
         prompt,
         generation_config = genai.GenerationConfig(
         max_output_tokens=1000,
-        temperature=0.5, 
+        temperature=1.5, 
       )
     
     )
