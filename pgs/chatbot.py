@@ -49,7 +49,7 @@ def get_gemini_response(prompt):
 
             """
 
-            )
+            ),
 
 
     response = model.generate_content(
