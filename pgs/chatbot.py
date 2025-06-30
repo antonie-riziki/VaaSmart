@@ -56,7 +56,7 @@ def get_gemini_response(prompt):
         prompt,
         generation_config = genai.GenerationConfig(
         max_output_tokens=1000,
-        temperature=1.5, 
+        temperature=0.5, 
       )
     
     )
